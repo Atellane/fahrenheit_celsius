@@ -3,5 +3,5 @@
 version = 3
 
 [[package]]
-name = "fahrenheit_celsius"
+name = "conversion_celsius_fahrenheit"
 version = "0.1.0"
