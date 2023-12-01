@@ -201,4 +201,4 @@ fn main() {
 }
 ```
 
-[^1]: une variable qui ombrage une variable porte le même nom qu'une ancienne variable et remplacera l'ancienne dans la portée interne
+[^1]: une variable qui ombrage une variable porte le même nom qu'une ancienne variable et la remplacera dans la portée interne
