@@ -9,7 +9,10 @@ fn main() {
             .read_line(&mut temperature_celsius_vers_fahrenheit)
             .expect("Le programme n'as pas pu lire l'entrée !");
 
-        let mut temperature_celsius_vers_fahrenheit: f32 = temperature_celsius_vers_fahrenheit.trim().parse::<f32>().expect("Merci de taper un nombre décimal !");
+        let mut temperature_celsius_vers_fahrenheit: f32 = temperature_celsius_vers_fahrenheit
+            .trim()
+            .parse::<f32>()
+            .expect("Merci de taper un nombre décimal !");
 
         print!("la température {temperature_celsius_vers_fahrenheit}°c vaut ");
         celsius_vers_fahrenheit(&mut temperature_celsius_vers_fahrenheit);
@@ -24,7 +27,10 @@ fn main() {
             .read_line(&mut temperature_fahrenheit_vers_celsius)
             .expect("Le programme n'as pas pu lire l'entrée !");
 
-        let mut temperature_fahrenheit_vers_celsius: f32 = temperature_fahrenheit_vers_celsius.trim().parse::<f32>().expect("Merci de taper un nombre décimal !");
+        let mut temperature_fahrenheit_vers_celsius: f32 = temperature_fahrenheit_vers_celsius
+            .trim()
+            .parse::<f32>()
+            .expect("Merci de taper un nombre décimal !");
         
         print!("la température {temperature_fahrenheit_vers_celsius}°f vaut ");
         fahrenheit_vers_celsius(&mut temperature_fahrenheit_vers_celsius);

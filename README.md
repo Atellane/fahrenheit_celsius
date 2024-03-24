@@ -36,7 +36,7 @@ fn celsius_vers_fahrenheit(temperature_celsius_vers_fahrenheit: &mut f32) -> () 
 }
 ```
 Notre fonction `celsius_vers_fahrenheit` prend en paramètre `temperature_celsius_vers_fahrenheit` qui correspond à la valeur de type `&mut f32` c'est à dire une 
-référence à une variable muable aillant une valeur de type `f32` qui est la température en celsius qu'on renseigne à l'utilisation de la fonction. On modifie la 
+référence à une variable mutable aillant une valeur de type `f32` qui est la température en celsius qu'on renseigne à l'utilisation de la fonction. On modifie la 
 valeur de la variable vers laquelle pointe la référence grace à l'opérateur de déréfrencement `*` qui permet de modifier la valeur de la variable, on applique donc 
 la formule de conversion. Pas besoin de retourner quoi que ce soit, c'est la variable dont la référence à été donnée en paramètre qui a été directement modififée.
 ### Implémentations de la fonction préalablement crée à notre programme
@@ -60,7 +60,7 @@ fn main() {
     // --code coupé--
 }
 ```
-Le code ci-dessus affiche d'abord un message avec `println!` pour prévenir l'utilisateur qu'une valeur lui ai demandée. Ensuite on crée une variable muable 
+Le code ci-dessus affiche d'abord un message avec `println!` pour prévenir l'utilisateur qu'une valeur lui ai demandée. Ensuite on crée une variable mutable 
 `temperature_celsius_vers_fahrenheit` de type `String` à laquelle nous assignons pour valeur une nouvelle chaine de caractère. `io::` va chercher une fonction dans 
 la crate `io` qu'on a importé.e, la fonction qu'on utilise pour demander la valeur à l'utilistaeur est `stdin()` (= standard input), `.read_line` lit la valeur qui 
 a été entrée et la place dans la variable `temperature_celsius_vers_fahrenheit`. Enfin `.expect` se charge d'afficher un message d'erreur si `read_line` n'a pas
@@ -74,7 +74,10 @@ fn main() {
     {
         // --code coupé--
         
-        let mut temperature_celsius_vers_fahrenheit: f32 = temperature_celsius_vers_fahrenheit.trim().parse::<f32>().expect("Merci de taper un nombre décimal !");
+        let mut temperature_celsius_vers_fahrenheit: f32 = temperature_celsius_vers_fahrenheit
+            .trim()
+            .parse::<f32>()
+            .expect("Merci de taper un nombre décimal !");
 
         print!("la température {temperature_celsius_vers_fahrenheit}°c vaut ");
         celsius_vers_fahrenheit(&mut temperature_celsius_vers_fahrenheit);
@@ -107,7 +110,10 @@ fn main() {
             .read_line(&mut temperature_celsius_vers_fahrenheit)
             .expect("Le programme n'as pas pu lire l'entrée !");
 
-        let mut temperature_celsius_vers_fahrenheit: f32 = temperature_celsius_vers_fahrenheit.trim().parse::<f32>().expect("Merci de taper un nombre décimal !");
+        let mut temperature_celsius_vers_fahrenheit: f32 = temperature_celsius_vers_fahrenheit
+            .trim()
+            .parse::<f32>()
+            .expect("Merci de taper un nombre décimal !");
 
         print!("la température {temperature_celsius_vers_fahrenheit}°c vaut ");
         celsius_vers_fahrenheit(&mut temperature_celsius_vers_fahrenheit);
@@ -126,7 +132,7 @@ fn fahrenheit_vers_celsius(temperature_fahrenheit_vers_celsius: &mut f32) -> () 
 }
 ```
 Notre fonction `convertir_fahrenheit_en_celsius` prend en paramètre `temperature_fahrenheit_vers_celsius` qui correspond à la valeur de type `&mut f32` c'est à dire 
-une référence à une variable muable aillant une valeur de type `f32` qui est la température en celsius qu'on renseigne à l'utilisation de la fonction. On modifie la 
+une référence à une variable mutable aillant une valeur de type `f32` qui est la température en celsius qu'on renseigne à l'utilisation de la fonction. On modifie la 
 valeur de la variable vers laquelle pointe la référence grace à l'opérateur de déréfrencement `*` qui permet de modifier la valeur de la variable, on applique donc 
 la formule de conversion. Pas besoin de retourner quoi que ce soit, c'est la variable dont la référence à été donnée en paramètre qui a été directement modififée.
 ### Implémentations de la fonction préalablement crée à notre programme
@@ -148,7 +154,7 @@ fn main() {
     // --code coupé--
 }
 ```
-Le code ci-dessus affiche d'abord un message avec `println!` pour prévenir l'utilisateur qu'une valeur lui ai demandée. Ensuite on crée une variable muable 
+Le code ci-dessus affiche d'abord un message avec `println!` pour prévenir l'utilisateur qu'une valeur lui ai demandée. Ensuite on crée une variable mutable 
 `temperature_fahrenheit_vers_celsius` de type `String` à laquelle nous assignons pour valeur une nouvelle chaine de caractère. `io::` va chercher une fonction dans 
 la crate `io` qu'on a importé.e, la fonction qu'on utilise pour demander la valeur à l'utilistaeur est `stdin()` (= standard input), `.read_line` lit la valeur qui 
 a été entrée et la place dans la variable `temperature_fahrenheit_vers_celsius`. Enfin `.expect` se charge d'afficher un message d'erreur si `read_line` n'a pas 
@@ -163,7 +169,10 @@ fn main() {
     {
         // --code coupé--
 
-       let mut temperature_fahrenheit_vers_celsius: f32 = temperature_fahrenheit_vers_celsius.trim().parse::<f32>().expect("Merci de taper un nombre décimal !");
+        let mut temperature_fahrenheit_vers_celsius: f32 = temperature_fahrenheit_vers_celsius
+            .trim()
+            .parse::<f32>()
+            .expect("Merci de taper un nombre décimal !");
         
         print!("la température {temperature_fahrenheit_vers_celsius}°f vaut ");
         fahrenheit_vers_celsius(&mut temperature_fahrenheit_vers_celsius);
@@ -171,7 +180,7 @@ fn main() {
     }
 }
 ```
-Tout d'abord, on utilise l'ombrage de **Rust** pour créer une nouvelle variable immuable `temperature_fahrenheit_vers_celsius` de type `f32` qui [^1]*ombragera* la 
+Tout d'abord, on utilise l'ombrage de **Rust** pour créer une nouvelle variable immutable `temperature_fahrenheit_vers_celsius` de type `f32` qui [^1]*ombragera* la 
 première, sa valeur est le résultat de la conversion de l'ancienne variable du même nom, en `f32`. `.trim()` s'occupe de retirer les espaces au début et à la fin de 
 la chaine de caractère d'origine, ensuite `.parse::<f32>()` convertit la chaine de caractère en `f32` et `.expect` affiche un message d'erreur si `parse` n'as pas 
 fonctionné. Ensuite on affiche la valeur de la variable `temperature_fahrenheit_vers_celsius` qui est la valeur en degré fahrenheit à l'aide de `print!` qui permet 
@@ -192,7 +201,10 @@ fn main() {
             .read_line(&mut temperature_fahrenheit_vers_celsius)
             .expect("Le programme n'as pas pu lire l'entrée !");
 
-        let mut temperature_fahrenheit_vers_celsius: f32 = temperature_fahrenheit_vers_celsius.trim().parse::<f32>().expect("Merci de taper un nombre décimal !");
+        let mut temperature_fahrenheit_vers_celsius: f32 = temperature_fahrenheit_vers_celsius
+            .trim()
+            .parse::<f32>()
+            .expect("Merci de taper un nombre décimal !");
         
         print!("la température {temperature_fahrenheit_vers_celsius}°f vaut ");
         fahrenheit_vers_celsius(&mut temperature_fahrenheit_vers_celsius);
